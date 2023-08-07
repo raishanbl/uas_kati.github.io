@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Sha's Albums</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&family=Quicksand:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="logo">
+            <img src="logotes.png">
+        </a>
+        <ul class="navbar2">
+            <li><a href="index.html">Home</a></li>
+            
+            
+            
+        </ul>
+        <ul class="navbar">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="produk.html">Product</a></li>
+            <li><a href="index.html">History</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="header-icons">
+           <a href="#"><i class='bx bx-search'></i></a> 
+            <a href="cart.html"><i class='bx bx-cart'></i></a>  
+            <a href="#"></a>    
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </header>
+        <br><br>
+
+        <section>
+            <div class="container">
+                <form id="invoiceForm">
+                    <h4>Order Here !</h4>
+                    <div class="input-section">
+                        <label for="nama">Full Name<span></span></label>
+                        <input id="nama" type="text" placeholder="Your Full Name" required>
+                        <br><label for="alamat">Address<span></span></label><br>
+                        <textarea id="alamat" rows="5" cols="30"> </textarea> 
+                        <br><br><label for="productSelect">Product<span></span></label>
+                        <select id="productSelect" size="1"> <br>
+                            <option value="Proof by BTS">Proof by BTS 
+                            <option value="Fearless by LE SSERAFIM"> Fearless by LE SSERAFIM
+                            <option value="The Album by BLACKPINK"> The Album by BLACKPINK
+                            <option value="BTS - Official Lightstick"> BTS - Official Lightstick
+                            <option value="Taemin - Never Gonna Dance Again"> Taemin - Never Gonna Dance Again
+                            <option value="BTS - DICON DFESTA PHOTO BOOK"> BTS - DICON D’FESTA PHOTO BOOK
+                        </select> 
+                        <br><br><label for="quantity">Qty<span></span></label>
+                        <input id="quantity" type="number" placeholder="Input Quantity" required>
+                        <br><br><label for="payment">Payment Method<span></span></label>
+                        <select id="payment" size="1"> <br>
+                            <option value="Bank Transfer">Bank Transfer
+                            <option value="Credit Card"> Credit Card
+                            <option value="PayPal"> PayPal
+                            <option value="E-Wallet"> E-Wallet
+                        </select> 
+
+                        </div>
+                        <br>
+                        <div class="home-btnn">
+                        <input type="button" class="btn" onclick="saveAndOpenNewPage()" value="Buy it Now">
+                    
+                        </div>
+                    </form>
+                    
+            </div>
+
+        </section>
+        <div class="copyright">
+            <p>Copyright © 2023 Sha`Albums
+            All Rights Reserved</p>
+        </div>
+
+                                            <script>
+                                                function saveSelectedProduct(selectedProduct) {
+                                                    localStorage.setItem('selectedProduct', selectedProduct);
+                                                }
+
+                                                function saveProductName(productName) {
+                                                    localStorage.setItem('productName', productName);
+                                                }
+
+                                                function saveProductQuantity(quantity) {
+                                                    localStorage.setItem('productQuantity', quantity);
+                                                }
+
+                                                function saveProductnama(nama) {
+                                                    localStorage.setItem('productnama', nama);
+                                                }
+                                                function saveProductalamat(alamat) {
+                                                    localStorage.setItem('productalamat', alamat);
+                                                }
+                                                function saveProductpayment(payment) {
+                                                    localStorage.setItem('productpayment', payment);
+                                                }
+
+                                                function openNewPage() {
+                                                    window.open('result.html', '_blank');
+                                                }
+
+                                                function saveAndOpenNewPage() {
+                                                    const productSelect = document.getElementById('productSelect');
+                                                    const selectedProduct = productSelect.value;
+                                                    const selectedProductName = productSelect.options[productSelect.selectedIndex].text;
+
+                                                    const quantityElement = document.getElementById('quantity');
+                                                    const quantity = quantityElement.value;
+
+                                                    const namaElement = document.getElementById('nama');
+                                                    const nama = namaElement.value;
+
+                                                    const alamatElement = document.getElementById('alamat');
+                                                    const alamat = alamatElement.value;
+
+                                                    const paymentElement = document.getElementById('payment');
+                                                    const payment = paymentElement.value;
+
+                                                    saveSelectedProduct(selectedProduct);
+                                                    saveProductName(selectedProductName);
+                                                    saveProductQuantity(quantity);
+                                                    saveProductnama(nama);
+                                                    saveProductalamat(alamat);
+                                                    saveProductpayment(payment);
+
+                                                    openNewPage();
+                                                }
+                                            </script>
+                                            <script src="script.js"></script>
+                                        </body>
+
+                                        </html>

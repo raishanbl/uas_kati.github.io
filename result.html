@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Sha's Albums</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&family=Quicksand:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="logo">
+            <img src="logotes.png">
+        </a>
+        <ul class="navbar2">
+            <li><a href="index.html">Home</a></li>
+            
+            
+            
+        </ul>
+        <ul class="navbar">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="produk.html">Product</a></li>
+            <li><a href="index.html">History</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="header-icons">
+           <a href="#"><i class='bx bx-search'></i></a> 
+            <a href="cart.html"><i class='bx bx-cart'></i></a>  
+            <a href="#"></a>    
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </header>
+        <br><br>
+
+        <section class="result" id="result">
+            <div class="result-text">
+               <center><h3>Thankyou for your order!</h3></center>
+            </div>
+            
+        </section>
+        <section>
+            <div class="container">
+                
+                    <h4>INVOICE</h4>
+                    <div class="input-section">
+                        <label id="namaDisplay">Full Name: -</label><br>
+                        <label id="alamatDisplay">Address: -</label><br>
+                        <label id="paymentDisplay">Payment: -</label><br>
+                        <label id="productNameDisplay">Product: -</label><br>
+                        <label id="quantityDisplay">Qty: -</label><br>
+                        <label id="priceDisplay">Price: -</label>
+                    </div>
+            </div>
+
+        </section>
+        <div class="copyright">
+            <p>Copyright © 2023 Sha`Albums
+            All Rights Reserved</p>
+        </div>
+         <script>
+ 
+        const productnama = localStorage.getItem('productnama');
+        const productalamat = localStorage.getItem('productalamat');
+          const productpayment = localStorage.getItem('productpayment');
+        const selectedProduct = localStorage.getItem('selectedProduct');
+        
+        const productName = localStorage.getItem('productName');
+        const productQuantity = localStorage.getItem('productQuantity');
+
+         
+        function formatCurrency(price) {
+            return price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+        }
+
+        function showProductDetails(nama,alamat,payment,productName, selectedProduct, quantity) {
+              const namaElement = document.getElementById('namaDisplay');
+             const alamatElement = document.getElementById('alamatDisplay');
+              const paymentElement = document.getElementById('paymentDisplay');
+            const productNameElement = document.getElementById('productNameDisplay');
+            const priceElement = document.getElementById('priceDisplay');
+            const quantityElement = document.getElementById('quantityDisplay');
+          
+
+            let price = 0;
+
+            switch (selectedProduct) {
+               case 'Proof by BTS':
+                    price = 299000;
+                    break;
+                case 'Fearless by LE SSERAFIM':
+                    price =  345150;
+                    break;
+                case 'The Album by BLACKPINK':
+                    price = 335375;
+                    break;
+                case 'BTS - Official Lightstick':
+                    price = 338200;
+                    break;
+                case 'Taemin - Never Gonna Dance Again':
+                    price = 575000;
+                    break;
+                 case 'BTS - DICON DFESTA PHOTO BOOK':
+                    price = 225375;
+                    break;
+                default:
+                    price = 0;
+                    break;
+            }
+             const formattedPrice = formatCurrency(price);
+              const total = price * quantity;
+               
+            const formattedTotal = formatCurrency(total);
+               namaElement.textContent = `Full Name: ${nama}`;
+             alamatElement.textContent = `Address: ${alamat}`;
+              paymentElement.textContent = `Payment Method: ${payment}`;
+            productNameElement.textContent = `Product Name: ${productName}`;
+            priceElement.textContent = `Price: ${formattedTotal}`;
+            quantityElement.textContent = `Qty: ${quantity}`;
+         
+        }   
+
+        showProductDetails(productnama,productalamat,productpayment,productName, selectedProduct, productQuantity);
+    </script>
+        
+ <script src="script.js"></script>
+    </body>
+    </html>
